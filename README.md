@@ -1,4 +1,9 @@
-School: HCMUT
-Student's ID: 2452333
+# Lab 1: STM32 Traffic Light & Analog Clock Simulation
 
-Led, Traffic Lights, Analog clock simulation with STM32CubeIDE and Proteus
+**School:** Ho Chi Minh City University of Technology (HCMUT - Bach Khoa)  
+**Student ID:** 2452333   
+
+---
+
+## 📌 Project Overview
+This repository contains source code and Proteus schematic simulations for **Lab 1: Microcontroller - Microprocessor Course**. Doing LEDs, Traffic lights, and Analog clock simulations.
