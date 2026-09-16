@@ -65,11 +65,69 @@ void setNumberOnClock(int num)
 	HAL_GPIO_WritePin(GPIOA, (GPIO_PIN_4 << num), GPIO_PIN_RESET);
 }
 
+void ex6_sim()
+{
+	for (int hour = 0; hour < 12; hour++)
+	{
+		clearAllClock();
+		setNumberOnClock(hour);
+		HAL_Delay(1000);
+	}
+}
+
+
 void clearNumberOnClock(int num)
 {
 	if (num < 0 || num > 11) return;
 	HAL_GPIO_WritePin(GPIOA, (GPIO_PIN_4 << num), GPIO_PIN_SET);
 }
+
+void increaseTime(int* sec, int* min, int* hour)
+{
+	(*sec)++;
+	if(*sec >= 60)
+		{
+			*sec = 0;
+			(*min)++;
+			if(*min >= 60)
+			{
+				*min = 0;
+				(*hour)++;
+
+				if(*hour >= 12)
+					*hour = 0;
+			}
+		}
+}
+
+void ex10_sim()
+{
+	static int sec = 0, min = 0, hour = 0;
+	static int prev_sec_led = -1, prev_min_led = -1, prev_hour_led = -1;
+
+	int sec_led = (sec / 5) % 12;
+	int min_led = (min / 5) % 12;
+	int hour_led = hour % 12;
+
+	if(sec_led != prev_sec_led && prev_sec_led != -1)
+		clearNumberOnClock(prev_sec_led);
+	if(min_led != prev_min_led && prev_min_led != -1)
+		clearNumberOnClock(prev_min_led);
+	if(hour_led != prev_hour_led && prev_hour_led != -1)
+		clearNumberOnClock(prev_hour_led);
+
+	setNumberOnClock(sec_led);
+	setNumberOnClock(min_led);
+	setNumberOnClock(hour_led);
+
+	prev_sec_led = sec_led;
+	prev_min_led = min_led;
+	prev_hour_led = hour_led;
+
+	HAL_Delay(1000);
+	increaseTime(&sec, &min, &hour);
+}
+
 /* USER CODE END 0 */
 
 /**
@@ -101,39 +159,14 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   /* USER CODE BEGIN 2 */
-
+  clearAllClock();
   /* USER CODE END 2 */
-
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  int hour = 0, min = 0, sec = 0;
   while (1)
   {
-	  clearAllClock();
-
-	  int sec_led = (sec / 5) % 12;
-	  int min_led = (min / 5) % 12;
-	  int hour_led = hour % 12;
-
-	  setNumberOnClock(sec_led);
-	  setNumberOnClock(min_led);
-	  setNumberOnClock(hour_led);
-
-	  HAL_Delay(1000);
-	  sec++;
-	  if(sec >= 60)
-	  {
-		  sec = 0;
-		  min++;
-		  if(min >= 60)
-		  {
-			  min = 0;
-			  hour++;
-
-			  if(hour >= 12)
-				  hour = 0;
-		  }
-	  }
+//	  ex6_sim();
+	  ex10_sim();
 
 
     /* USER CODE END WHILE */
