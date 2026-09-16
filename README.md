@@ -1,6 +1,7 @@
 # Lab 1: STM32 Traffic Light & Analog Clock Simulation
 
-**School:** Ho Chi Minh City University of Technology (HCMUT - Bach Khoa)  
+**School:** Ho Chi Minh City University of Technology (HCMUT)  
+**Student Name:** Nguyen Trong Hieu  
 **Student ID:** 2452333   
 
 ---
