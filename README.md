@@ -7,4 +7,4 @@
 ---
 
 ## 📌 Project Overview
-This repository contains source code and Proteus schematic simulations for **Lab 1: Microcontroller - Microprocessor Course**. Doing LEDs, Traffic lights, and Analog clock simulations.
+This repository contains source code and Proteus schematic simulations for **Lab 1: Led Animations**. Doing LEDs, Traffic lights, and Analog clock simulations.
