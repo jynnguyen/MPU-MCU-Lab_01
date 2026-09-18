@@ -1,4 +1,4 @@
-# Lab 1: STM32 Traffic Light & Analog Clock Simulation
+# Microcontroller - Microprocessor Lab 1
 
 **School:** Ho Chi Minh City University of Technology (HCMUT)  
 **Student Name:** Nguyen Trong Hieu  
