@@ -102,7 +102,7 @@ void increaseTime(int* sec, int* min, int* hour)
 
 void ex10_sim()
 {
-	static int sec = 0, min = 0, hour = 0;
+	static int sec = 0, min = 59, hour = 6;
 	static int prev_sec_led = -1, prev_min_led = -1, prev_hour_led = -1;
 
 	int sec_led = (sec / 5) % 12;
@@ -124,7 +124,7 @@ void ex10_sim()
 	prev_min_led = min_led;
 	prev_hour_led = hour_led;
 
-	HAL_Delay(1000);
+	HAL_Delay(100);
 	increaseTime(&sec, &min, &hour);
 }
 
